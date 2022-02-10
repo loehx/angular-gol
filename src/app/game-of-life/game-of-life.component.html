@@ -1,0 +1,11 @@
+<div class="grid-wrapper">
+  <gol-grid [rows]="rows" (cellClicked)="cellClickedHandler($event)"></gol-grid>
+</div>
+<gol-control-bar
+  [size]="size"
+  [fps]="fps"
+  (action)="doAction($event)"
+  (resize)="resize($event)"
+  (setFps)="setFps($event)"
+  (loadPattern)="loadPattern($event)"
+></gol-control-bar>

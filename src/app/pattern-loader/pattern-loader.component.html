@@ -1,0 +1,11 @@
+<div class="pattern-loader">
+  <form (submit)="onSubmit()">
+    <select [(ngModel)]="selectedPattern" name="pattern" required>
+      <option *ngFor="let p of patterns" [value]="p">{{ p }}</option>
+      )
+    </select>
+    <button type="submit" title="Load pattern">
+      <fa-icon [icon]="faUpload"></fa-icon>
+    </button>
+  </form>
+</div>

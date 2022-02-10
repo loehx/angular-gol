@@ -1,0 +1,12 @@
+<div class="grid">
+  <div
+    *ngFor="let row of rows; let y = index; trackBy: trackByIndex"
+    class="row"
+  >
+    <gol-cell
+      *ngFor="let cell of row; let x = index; trackBy: trackByIndex"
+      (onMouseAction)="onMouseAction(y, x)"
+      [active]="cell"
+    ></gol-cell>
+  </div>
+</div>

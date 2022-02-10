@@ -1,0 +1,46 @@
+<div class="panel">
+  <button v-show="!running" (click)="action.emit('start')" title="Start">
+    <fa-icon [icon]="faPlay"></fa-icon>
+  </button>
+  <button v-show="running" (click)="action.emit('stop')" title="Stop">
+    <fa-icon [icon]="faStop"></fa-icon>
+  </button>
+  <button (click)="action.emit('run')" title="Single lifecycle">
+    <fa-icon [icon]="faForward"></fa-icon>
+  </button>
+  <button (click)="action.emit('clear')" title="Clear">
+    <fa-icon [icon]="faTrash"></fa-icon>
+  </button>
+  <button (click)="action.emit('shuffle')" title="Shuffle">
+    <fa-icon [icon]="faRandom"></fa-icon>
+  </button>
+</div>
+
+<div class="panel">
+  <gol-pattern-loader
+    (loadPattern)="loadPattern.emit($event)"
+  ></gol-pattern-loader>
+</div>
+
+<div class="panel">
+  <button (click)="resize.emit(size + 10)" title="Increase grid size">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+  {{ size }}x{{ size }}
+  <button
+    (click)="resize.emit(size > 10 ? size - 10 : size)"
+    title="Decrease grid size"
+  >
+    <fa-icon [icon]="faMinus"></fa-icon>
+  </button>
+</div>
+
+<div class="panel">
+  <button (click)="setFps.emit(fps + 1)" title="Speed up">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+  {{ fps }} fps
+  <button (click)="setFps.emit(fps > 1 ? fps - 1 : 1)" title="Slow down">
+    <fa-icon [icon]="faMinus"></fa-icon>
+  </button>
+</div>
