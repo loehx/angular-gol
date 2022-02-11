@@ -72,16 +72,13 @@ export function loadPattern(
   return import('./patterns/' + name + '.txt')
     .then((m) => m.default)
     .then((txt) => {
-      console.log('TEXT:' + txt);
+      console.log(txt);
       const lines = txt.split('\n').filter((line: string) => line[0] !== '!');
-      console.log('lines', lines.length);
       const matrix = lines.map((line: string) => line.split(''));
       const width = Math.max(...matrix.map((r: string[]) => r.length));
       const height = matrix.length;
       const size = Math.max(width, height) + padding * 2;
       const grid = generateGrid(size, oldGrid);
-
-      console.log('width/height', width, height);
 
       for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {

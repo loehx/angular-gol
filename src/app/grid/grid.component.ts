@@ -23,7 +23,6 @@ export class GridComponent implements OnInit {
 
   onMouseAction(y: number, x: number) {
     if (this.mouseDown) {
-      console.log('onMouseMove', y, x);
       this.cellClicked.emit({ y, x });
     }
   }
